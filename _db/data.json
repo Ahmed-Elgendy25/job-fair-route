@@ -1,0 +1,68 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Ahmed Ali",
+      "email": "ahmedali@example.com",
+      "date": "2022-01-01",
+      "amount": 1000,
+      "approved": true
+    },
+    {
+      "id": 2,
+      "name": "Aya Elsayed",
+      "email": "ayaelsayed@example.com",
+      "date": "2022-01-02",
+      "amount": 2000,
+      "approved": true
+    },
+    {
+      "id": 3,
+      "name": "Mina Adel",
+      "email": "mina3adel@example.com",
+      "date": "2022-01-01",
+      "amount": 550,
+      "approved": false
+    },
+    {
+      "id": 4,
+      "name": "Sarah Reda",
+      "email": "sarahreda@example.com",
+      "date": "2022-01-01",
+      "amount": 500,
+      "approved": true
+    },
+    {
+      "id": 5,
+      "name": "Mohamed Sayed",
+      "email": "mohamedsayed@example.com",
+      "date": "2022-01-02",
+      "amount": 1300,
+      "approved": true
+    },
+    {
+      "id": 6,
+      "name": "Laila Hossam",
+      "email": "lailahossam@example.com",
+      "date": "2022-01-01",
+      "amount": 750,
+      "approved": true
+    },
+    {
+      "id": 7,
+      "name": "Omar Fathy",
+      "email": "omarfathy@example.com",
+      "date": "2022-01-02",
+      "amount": 1250,
+      "approved": false
+    },
+    {
+      "id": 8,
+      "name": "Nour Yasser",
+      "email": "nouryasser@example.com",
+      "date": "2022-01-01",
+      "amount": 2500,
+      "approved": true
+    }
+  ]
+}
