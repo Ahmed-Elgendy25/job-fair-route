@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
@@ -25,7 +26,15 @@ import { Input } from './ui/input';
 
 /* TYPES */
 
-function Transactions() {
+function Transactions({
+  selectedCustomer,
+  setSelectedCustomer,
+}: {
+  selectedCustomer: customersType[] | undefined;
+  setSelectedCustomer: React.Dispatch<
+    React.SetStateAction<customersType[] | undefined>
+  >;
+}) {
   const [customers, setCustomers] = useState<customersType[] | undefined>(
     undefined
   );
@@ -72,6 +81,21 @@ function Transactions() {
     }
   }
 
+  function handleSelection(id: number) {
+    if (
+      selectedCustomer &&
+      selectedCustomer[0] &&
+      selectedCustomer[0].id === id
+    ) {
+      setSelectedCustomer([]);
+    } else {
+      const selectCustomer: customersType[] | undefined = customers?.filter(
+        (customer) => customer.id === id
+      );
+      setSelectedCustomer(selectCustomer);
+    }
+  }
+
   return (
     <>
       {customers !== undefined ? (
@@ -113,7 +137,17 @@ function Transactions() {
               <TableBody>
                 {search === ''
                   ? customers.map((customer) => (
-                      <TableRow key={customer.id}>
+                      <TableRow
+                        key={customer.id}
+                        onClick={() => handleSelection(customer.id)}
+                        className={
+                          selectedCustomer &&
+                          selectedCustomer[0] &&
+                          selectedCustomer[0].id === customer.id
+                            ? `bg-muted/50`
+                            : `bg-black`
+                        }
+                      >
                         <TableCell>{customer.id}</TableCell>
                         <TableCell>
                           <div className="font-medium">{customer.name}</div>
@@ -141,7 +175,10 @@ function Transactions() {
                       </TableRow>
                     ))
                   : filteredCustomers?.map((customer) => (
-                      <TableRow key={customer.id}>
+                      <TableRow
+                        key={customer.id}
+                        onClick={() => handleSelection(customer.id)}
+                      >
                         <TableCell>{customer.id}</TableCell>
                         <TableCell>
                           <div className="font-medium">{customer.name}</div>
